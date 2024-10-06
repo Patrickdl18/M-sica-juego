@@ -3,16 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Juego de Música</title>
+    <title>Mini Donas Ruleta</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://i.postimg.cc/QtS15npf/Imagen-inicio.webp'); /* Imagen de inicio completa */
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        #barraCarga {
+            width: 50%;
+            height: 20px;
+            background-color: #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 20px;
+            display: none;
+        }
+        #progreso {
+            height: 100%;
+            width: 0%;
+            background-color: #4caf50;
+        }
+        button {
+            background-color: #ff6666;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+            margin-top: 20px;
+            display: none; /* Oculto hasta que la barra de carga se complete */
+        }
+        button:hover {
+            background-color: #ff5050;
+        }
+    </style>
 </head>
 <body>
-    <h1>Bienvenido a mi juego</h1>
-    <p>Esta es la página principal de mi juego.</p>
 
-    <!-- Aquí puedes integrar la música -->
-   <audio autoplay loop>
-    <source src="Dee Yan-Key - Vivace con brio (1).mp3" type="audio/mpeg">
-    Tu navegador no soporta la reproducción de audio.
-</audio>
+    <!-- Agregamos el audio aquí -->
+    <audio id="musicaFondo" loop autoplay>
+        <source src="https://www.dropbox.com/scl/fi/i6k7c7nnbl98uyxhjk50k/Dee-Yan-Key-Vivace-con-brio.mp3?rlkey=jgenu8ezu09q57cnvccm6s6hz&st=pvt838ll&dl=1" type="audio/mpeg">
+    </audio>
+
+    <div id="barraCarga">
+        <div id="progreso"></div>
+    </div>
+
+    <button id="botonComenzar" onclick="comenzarJuego()">¡Comenzar!</button>
+
+    <script>
+        // Simular la barra de carga
+        window.onload = function() {
+            document.getElementById('barraCarga').style.display = 'block'; // Mostrar la barra de carga
+            let progreso = 0;
+            let intervalo = setInterval(function() {
+                progreso += 1;
+                document.getElementById('progreso').style.width = progreso + '%';
+                if (progreso >= 100) {
+                    clearInterval(intervalo);
+                    document.getElementById('botonComenzar').style.display = 'block'; // Mostrar el botón "Comenzar"
+                }
+            }, 50); // Incrementar cada 50 milisegundos para simular la carga
+        }
+
+        function comenzarJuego() {
+            // Cambiar la imagen de fondo a la de la ruleta
+            document.body.style.backgroundImage = "url('https://i.postimg.cc/qvnKQ7sh/RULETA.webp')"; // Cambiamos a la imagen de la ruleta
+            document.getElementById('barraCarga').style.display = 'none'; // Ocultar la barra de carga
+            document.getElementById('botonComenzar').style.display = 'none'; // Ocultar el botón "Comenzar"
+            // La música seguirá sonando en la siguiente pantalla
+        }
+    </script>
+
 </body>
 </html>
