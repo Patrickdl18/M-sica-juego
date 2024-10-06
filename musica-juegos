@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Música</title>
+</head>
+<body>
+    <h1>Bienvenido a mi juego</h1>
+    <p>Esta es la página principal de mi juego.</p>
+
+    <!-- Aquí puedes integrar la música -->
+    <audio autoplay loop>
+        <source src="Dee Yan-Key - Vivace con brio (1).mp3" type="audio/mpeg">
+        Tu navegador no soporta la reproducción de audio.
+    </audio>
+</body>
+</html>
